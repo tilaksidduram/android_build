@@ -668,6 +668,56 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   system_progress = 0.75
 
+  script.Print(" ")
+  script.Print(" ")
+  script.Print(" __     _                           _____  _____  ")
+  script.Print("|  |   |_| ___  ___  ___  ___  ___ |     ||   __| ")
+  script.Print("|  |__ | ||   || -_|| .'|| . || -_||  |  ||__   | ")
+  script.Print("|_____||_||_|_||___||__,||_  ||___||_____||_____| ")
+  script.Print("                         |___|                    ")
+  script.Print(" ")
+  script.Print(" ")
+
+  if GetBuildProp("ro.cm.version", OPTIONS.info_dict) is not None:
+    buildid = GetBuildProp("ro.cm.version", OPTIONS.info_dict)
+    buildtype = GetBuildProp("ro.build.type", OPTIONS.info_dict)
+    buildidn = GetBuildProp("ro.build.id", OPTIONS.info_dict)
+    buildday = GetBuildProp("ro.build.date", OPTIONS.info_dict)
+    securep = GetBuildProp("ro.build.version.security_patch", OPTIONS.info_dict)
+    buildhst = GetBuildProp("ro.build.host", OPTIONS.info_dict)
+    density = GetBuildProp("ro.sf.lcd_density", OPTIONS.info_dict)
+    device = GetBuildProp("ro.cm.device", OPTIONS.info_dict)
+    androidver = GetBuildProp("ro.build.version.release", OPTIONS.info_dict)
+    manufacturer = GetBuildProp("ro.product.manufacturer", OPTIONS.info_dict)
+    maintainer = GetBuildProp("ro.build.user", OPTIONS.info_dict)
+    sdkver = GetBuildProp("ro.build.version.sdk", OPTIONS.info_dict)
+    script.Print(" **************** Software *****************");
+    script.Print(" OS ver: %s"%(buildid));
+    script.Print("");
+    script.Print(" Android ver: %s"%(androidver));
+    script.Print("");
+    script.Print(" Security patch: %s"%(securep));
+    script.Print("");
+    script.Print(" SDK ver: %s"%(sdkver));
+    script.Print("");
+    script.Print(" Root status: Enabled");
+    script.Print("");
+    script.Print(" Build ID: %s"%(buildidn));
+    script.Print("");
+    script.Print(" Build date: %s"%(buildday));
+    script.Print("");
+    script.Print(" Build type: %s"%(buildtype));
+    script.Print("");
+    script.Print(" Build host: %s"%(buildhst));
+    script.Print(" **************** Hardware *****************");
+    script.Print(" Device codename: %s"%(device));
+    script.Print("");
+    script.Print(" Manufacturer: %s"%(manufacturer));
+    script.Print("");
+    script.Print(" LCD density: %s"%(density));
+    script.Print("");
+    script.Print(" *******************************************");
+
   if OPTIONS.wipe_user_data:
     system_progress -= 0.1
   if HasVendorPartition(input_zip):
